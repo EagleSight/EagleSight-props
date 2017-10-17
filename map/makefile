@@ -1,8 +1,8 @@
 
-compress_all:
+pack:
 	gzip -9 -k -f ./**/*.asc
 
-decompress_all:
+unpack:
 	gzip -d -f -k ./**/*.asc.gz
 
 obj:
