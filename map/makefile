@@ -10,7 +10,7 @@ obj:
 
 objs:
 	for dir in `ls -d */` ; do \
-        python map_maker.py $$dir ; \
+        python3.5 map_maker.py $$dir ; \
     done
 
 clean:

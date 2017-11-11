@@ -33,7 +33,7 @@ def convert(folder):
                 for i in line.replace('\n', '').split(' ')[1:]:
                     h = int(i)
                     if h == water or h == nodata_value:
-                        data.append((0, -1))
+                        data.append((0, vertex_index))
                     else:
                         data.append((h, vertex_index))
                         vertex_index += 1
@@ -79,9 +79,6 @@ def convert(folder):
                 break
 
             if i % cols_count == last_of_line:
-                continue
-
-            if data[i][1] == -1 or data[i+1][1] == -1 or data[i+cols_count+1][1] == -1 or data[i+cols_count][1] == -1:
                 continue
 
             # Face 1
