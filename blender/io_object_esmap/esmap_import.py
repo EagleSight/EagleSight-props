@@ -50,7 +50,7 @@ def read_some_data(context, filepath):
     w_center = width / 2
     h_center = height / 2
     scaled_distance = distance * scale_up
-    scaled_top = top * scale_up
+    scaled_top = top * scale_up 
 
     # Set vertices position from pixels of the map texture
     for row in range(height, 0, -1): # top->bottom
@@ -59,8 +59,8 @@ def read_some_data(context, filepath):
             i = ((row-1)*width+column)
             
             v = (
-                (math.floor(i/width) - w_center) * scaled_distance, # X
-                (i % width - h_center) * scaled_distance, # Y
+                (column - w_center) * scaled_distance, # X
+                (row - h_center) * scaled_distance, # Y
                 pxs[i*4] * scaled_top # Z
             )
             
@@ -75,13 +75,6 @@ def read_some_data(context, filepath):
             #    |   \   |
             #    |     \ |
             #    4------51
-            
-            print(len(bm.verts))
-            print(height)
-            print(row)
-            print(width)
-            print(column)
-            print(row*column)
             
             bm.faces.new((
                 bm.verts[row*width+column],      # 0
