@@ -70,7 +70,12 @@ def asc_to_esmap(folder):
 
         for d in data:
             f.write(struct.pack('=h', d))
+
+        # Colors, 255 means all white
+        for _ in range(0, ncols * nrows):
+            f.write(struct.pack('=BBB', 255, 255, 255))
         
+            
 
 if __name__ == '__main__':
 

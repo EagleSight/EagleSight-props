@@ -22,6 +22,15 @@ def write_some_data(context, filepath: str, top_altitude: int, distance: float):
             # Store the height of the pixels
             f.write(struct.pack('=h', int(pxs[((row-1)*width+column)*4]*top_altitude)))
 
+
+    map_mesh = bpy.data.meshes['map']
+
+    # Exports colors of each points
+    for row in range(height, 0, -1): # top->bottom
+        for column in range(0, width): # right->left
+            
+        mesh.vertex_colors["Col"]
+
     f.close()
 
     return {'FINISHED'}
@@ -53,7 +62,7 @@ class ExportSomeData(Operator, ExportHelper):
     top_altitude = IntProperty(
             name="Top Altitude",
             description="Height of the heighest point on the map (in meters)",
-            default=1,
+            default=100,
             max=9000,
             min=0
             )
